@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "initial_step">
+    <test name = "try_testNG">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "webautomation_test.draggable_test.Draggable_AutoScrolling_Test"/>
+        </classes>
+    </test>
+</suite>
