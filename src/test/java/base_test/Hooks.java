@@ -10,25 +10,24 @@ import utils.Pages;
 
 public class Hooks {
 
-	protected Pages pages;
+    protected Pages pages;
 
-	public SoftAssert softAssert = new SoftAssert();
+    public SoftAssert softAssert = new SoftAssert();
 
-	private static final Logger LOGGER = LogManager.getLogger(Hooks.class);
+    private static final Logger LOGGER = LogManager.getLogger(Hooks.class);
 
-	// @Parameters("browser")
-	@BeforeClass
-	public void setUpTestEnvironment() {
-		String browserType = "chrome";
-		DriverManager.getWebDriver(browserType);
-		pages = new Pages();
-		LOGGER.info("Test started!");
-	}
+    @Parameters("browser")
+    @BeforeClass
+    public void setUpTestEnvironment(String browserType) {
+        DriverManager.getWebDriver(browserType);
+        pages = new Pages();
+        LOGGER.info("Test started!");
+    }
 
-	@AfterClass
-	public void tearDownTestEnvironment() {
-		DriverManager.closeDriver();
-		LOGGER.info("Test finished!");
-	}
+    @AfterClass
+    public void tearDownTestEnvironment() {
+        DriverManager.closeDriver();
+        LOGGER.info("Test finished!");
+    }
 
 }
