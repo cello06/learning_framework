@@ -17,10 +17,7 @@ public class DriverManager {
 	}
 
 	public static WebDriver getWebDriver() {
-		return getWebDriver(System.getProperty("browser", "chrome"));
-	}
-
-	public static WebDriver getWebDriver(String browserType) {
+		String browserType = ConfigManager.getProperty("browser").toLowerCase();
 		WebDriver driver;
 		if (THREAD_LOCAL_DRIVER.get() == null) {
 			switch (browserType.toLowerCase()) {
@@ -45,7 +42,7 @@ public class DriverManager {
 				}
 			}
 
-			driver.get("https://InarAcademy:Fk160621.@test.inar-academy.com");
+			driver.get(ConfigManager.getProperty("baseURL"));
 			THREAD_LOCAL_DRIVER.set(driver);
 		}
 

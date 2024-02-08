@@ -10,15 +10,19 @@ import java.time.Duration;
 
 public class BasePage {
 
-	protected final WebDriver DRIVER = DriverManager.getWebDriver();
+	protected final WebDriver DRIVER;
 
-	protected WebDriverWait wait = new WebDriverWait(DRIVER, Duration.ofSeconds(10));
+	protected WebDriverWait wait;
 
-	public Actions actions = new Actions(DRIVER);
+	public Actions actions;
 
 	public BasePage() {
+		DRIVER = DriverManager.getWebDriver();
 		PageFactory.initElements(DRIVER, this);
 		DRIVER.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		actions = new Actions(DRIVER);
+		wait = new WebDriverWait(DRIVER, Duration.ofSeconds(10));
+
 	}
 
 }

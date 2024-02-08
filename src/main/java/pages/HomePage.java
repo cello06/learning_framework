@@ -5,6 +5,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
+	@FindBy(css = "a > img")
+	private WebElement inarAcademyLogo;
+
+	@FindBy(xpath = "(//input[@role='switch']/../div)[2]")
+	private WebElement backgroundChangerElement;
+
 	@FindBy(linkText = "Weborder")
 	private WebElement webOrderLink;
 
@@ -22,6 +28,14 @@ public class HomePage extends BasePage {
 
 	@FindBy(linkText = "File Uploading")
 	private WebElement fileUploadingLink;
+
+	public void clickInarAcademyLogo() {
+		inarAcademyLogo.click();
+	}
+
+	public void changeBackground() {
+		backgroundChangerElement.click();
+	}
 
 	public void clickWebOrderLink() {
 		webOrderLink.click();
